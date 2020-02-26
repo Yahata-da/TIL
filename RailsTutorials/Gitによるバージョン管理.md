@@ -133,13 +133,17 @@ configファイル内に
 
 ```git checkout master```実行時
 
-```error: Your local changes to the following files would be overwritten by checkout:
+```
+error: Your local changes to the following files would be overwritten by checkout:
         .bash_history
 Please commit your changes or stash them before you switch branches.
-Aborting``` 
+Aborting
+``` 
+
 【原因】
 - .bash_historyに変更が加えられるのでcommitするかstash(一時的に退避)するかしてねという事ですが、.bash_histryには綱に実行したコマンドの履歴が更新されるので解決できない。そもそもmasterにチェックアウトしてトピックブランチを削除しようにもそのチェックアウトができないわけで…  
-- そもそもgitのリモートリポジトリに.bash_historyが含まれてるのがおかしいわけで、そうなった原因はアプリのルートディレクトリではなくその上のenvironmentで```git add```を叩いていたから  
+- そもそもgitのリモートリポジトリに.bash_historyが含まれてるのがおかしいわけで、そうなった原因はアプリのルートディレクトリではなくその上のenvironmentでgit addを叩いていたから  
+
 【解決】
 →にっちもさっちも行かなくなったのでrails newからやり直しました…。
 
